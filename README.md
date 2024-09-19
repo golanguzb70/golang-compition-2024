@@ -53,7 +53,15 @@ The goal of this project is to build a backend system that manages tenders (proc
      - Contractors can submit bids.
      - Proper validation of bid data (e.g., price > 0, delivery time > 0).
 
-#### **4. Bid Evaluation and Tender Awarding**
+#### **4. Bid Filtering and Sorting**
+   - **Description**: 
+     - Allow clients to filter bids based on criteria like price, delivery time.
+   
+   - **Implementation Requirements**:
+     - Filtering options on bid listing endpoint (GET `/tenders/:id/bids?price=<>&delivery_time=<>`).
+     - Sorting by bid price or delivery time.
+
+#### **5. Bid Evaluation and Tender Awarding**
    - **Description**: 
      - After the tender deadline, the client should be able to evaluate all bids submitted to a tender.
      - Clients can select a winning bid and award the tender.
@@ -68,7 +76,7 @@ The goal of this project is to build a backend system that manages tenders (proc
      - Clients can view bids, award a tender, and notify the contractor.
      - Tender status updates appropriately.
 
-#### **5. Tender and Bid History**
+#### **6. Tender and Bid History**
    - **Description**: 
      - Both clients and contractors should be able to view the history of tenders they created, participated in, and the status of each tender and bid.
    
@@ -90,15 +98,8 @@ The goal of this project is to build a backend system that manages tenders (proc
    - **Implementation Requirements**:
      - Setup WebSockets for real-time notification.
 
-#### **2. Bid Filtering and Sorting**
-   - **Description**: 
-     - Allow clients to filter bids based on criteria like price, delivery time, or contractor reputation.
-   
-   - **Implementation Requirements**:
-     - Filtering options on bid listing endpoint (GET `/tenders/:id/bids?price=<>&delivery_time=<>`).
-     - Sorting by bid price or delivery time.
 
-#### **3. Analytics Dashboard (for Clients)**
+#### **2. Analytics Dashboard (for Clients)**
    - **Description**: 
      - Clients can see analytics on their tender activity, such as the number of tenders posted, average number of bids, and average winning bid price.
    
@@ -106,15 +107,20 @@ The goal of this project is to build a backend system that manages tenders (proc
      - Analytics endpoint (GET `/analytics`).
      - Generate summary reports based on tenders and bids.
 
-#### **4. Rate Limiting & Caching**
+#### **3. Rate Limiting**
    - **Description**: 
      - Implement rate limiting to prevent spamming the bid submission endpoint.
-     - Use caching to reduce server load when listing tenders and bids.
    
    - **Implementation Requirements**:
      - Rate limit bid submissions to 5 per minute per contractor.
-     - Cache results of frequently accessed APIs (like tender listings).
 
+#### **4. Caching **
+   - **Description**:
+     - Use caching to reduce server load when getting tenders and bids.
+   
+   - **Implementation Requirements**:
+     - Cache results of frequently accessed APIs (like tender listings).
+     - Cache expiration policy should be set correctly to provide data consistency.
 ---
 
 ### **Database Schema**:
