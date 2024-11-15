@@ -1,0 +1,14 @@
+{
+    "reporters": [
+        "default",
+        ["./node_modules/jest-html-reporter", {
+            "pageTitle": "Test Report",
+            "includeConsoleLog": true,
+            "includeFailureMsg": true,
+            "includeStackTrace": true,
+            "useCssFile":   true,
+            "includeSuiteFailure": true,
+            "outputPath": "report.html"
+        }]
+    ]
+}
