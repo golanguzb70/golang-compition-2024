@@ -124,7 +124,7 @@ The goal of this project is to build a backend system that manages tenders (proc
 ---
 
 ### **Database Schema**:
-1. **User** (id, username, password, role, email)
+1. **User** (id, username, password, user_type, email)
 2. **Tender** (id, client_id, title, description, deadline, budget, status)
 3. **Bid** (id, tender_id, contractor_id, price, delivery_time, comments, status)
 4. **Notification** (id, user_id, message, created_at)
