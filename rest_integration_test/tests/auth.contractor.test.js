@@ -12,7 +12,7 @@ describe("Authorization Contractor", () => {
     const payload = {
       email: generatedEmail,
       password: password,
-      user_type: "contractor",
+      role: "contractor",
       username: generatedEmail, // Use part of email as username
     };
 
@@ -30,7 +30,7 @@ describe("Authorization Contractor", () => {
     const payload = {
       email: "", 
       password: "1234",
-      user_type: "contractor",
+      role: "contractor",
       username: "",
     };
 
@@ -45,12 +45,12 @@ describe("Authorization Contractor", () => {
     expect(response.body.message).toContain("username or email cannot be empty");
   });
 
-  test("Fail register user - Invalid user type", async () => {
+  test("Fail register user - invalid role", async () => {
     const email = faker.internet.email();
     const payload = {
       email: email, // Missing email
       password: "1234",
-      user_type: "not-a-user-type", // Invalid user type
+      role: "not-a-user-type", // invalid role
       username: email,
     };
 
@@ -62,14 +62,14 @@ describe("Authorization Contractor", () => {
 
     expect(response.status).toBe(400); // Validation error
     expect(response.body).toHaveProperty("message");
-    expect(response.body.message).toContain("invalid user type");
+    expect(response.body.message).toContain("invalid role");
   });
 
   test("Fail register user - Duplicate email", async () => {
     const payload = {
       email: generatedEmail, // Same email as before
       password: faker.internet.password(),
-      user_type: "contractor",
+      role: "contractor",
       username: generatedEmail,
     };
 
@@ -88,7 +88,7 @@ describe("Authorization Contractor", () => {
     const payload = {
       email: "invalid-email", // Invalid email format
       password: password,
-      user_type: "contractor",
+      role: "contractor",
       username: "testUser",
     };
 

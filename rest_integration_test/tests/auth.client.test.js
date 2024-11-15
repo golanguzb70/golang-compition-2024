@@ -12,7 +12,7 @@ describe("Authorization Client", () => {
     const payload = {
       email: generatedEmail,
       password: password,
-      user_type: "client",
+      role: "client",
       username: generatedEmail, // Use part of email as username
     };
 
@@ -30,7 +30,7 @@ describe("Authorization Client", () => {
     const payload = {
       email: "", // Missing email
       password: "1234",
-      user_type: "client",
+      role: "client",
       username: "",
     };
 
@@ -49,7 +49,7 @@ describe("Authorization Client", () => {
     const payload = {
       email: generatedEmail, // Same email as before
       password: faker.internet.password(),
-      user_type: "client",
+      role: "client",
       username: generatedEmail,
     };
 
@@ -68,7 +68,7 @@ describe("Authorization Client", () => {
     const payload = {
       email: "invalid-email", // Invalid email format
       password: password,
-      user_type: "client",
+      role: "client",
       username: "testUser",
     };
 
