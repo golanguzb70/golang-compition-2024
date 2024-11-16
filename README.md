@@ -71,7 +71,7 @@ The goal of this project is to build a backend system that manages tenders (proc
    
    - **Implementation Requirements**:
      - Award tender endpoint (POST `/tenders/:id/award/:bid_id`).
-     - Notifications (email or push notifications).
+     - Notifications (push notifications).
    
    - **Evaluation Criteria**:
      - Clients can view bids, award a tender, and notify the contractor.
@@ -94,7 +94,7 @@ The goal of this project is to build a backend system that manages tenders (proc
 
 #### **1. Real-time Updates**
    - **Description**: 
-     - Implement WebSockets to notify contractors in real-time when a new tender is posted.
+     - Implement WebSockets to notify users.
    
    - **Implementation Requirements**:
      - Setup WebSockets for real-time notification.
@@ -119,7 +119,7 @@ The goal of this project is to build a backend system that manages tenders (proc
 1. **User** (id, username, password, role, email)
 2. **Tender** (id, client_id, title, description, deadline, budget, status)
 3. **Bid** (id, tender_id, contractor_id, price, delivery_time, comments, status)
-4. **Notification** (id, user_id, message, created_at)
+4. **Notification** (id, user_id, message, relation_id, type, created_at)
 
 ---
 
