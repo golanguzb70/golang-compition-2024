@@ -99,23 +99,14 @@ The goal of this project is to build a backend system that manages tenders (proc
    - **Implementation Requirements**:
      - Setup WebSockets for real-time notification.
 
-
-#### **2. Analytics Dashboard (for Clients)**
-   - **Description**: 
-     - Clients can see analytics on their tender activity, such as the number of tenders posted, average number of bids, and average winning bid price.
-   
-   - **Implementation Requirements**:
-     - Analytics endpoint (GET `/analytics`).
-     - Generate summary reports based on tenders and bids.
-
-#### **3. Rate Limiting**
+#### **2. Rate Limiting**
    - **Description**: 
      - Implement rate limiting to prevent spamming the bid submission endpoint.
    
    - **Implementation Requirements**:
      - Rate limit bid submissions to 5 per minute per contractor.
 
-#### **4. Caching **
+#### **3. Caching **
    - **Description**:
      - Use caching to reduce server load when getting tenders and bids.
    
@@ -153,3 +144,45 @@ The goal of this project is to build a backend system that manages tenders (proc
   - Extra points for real-time notifications, advanced filtering, and analytics.
 
 ---
+
+
+### **Technical requirements**:
+
+#### **Your project should use the following technologies:**
+- **Golang** for backend development.
+- **PostgreSQL** or **MongoDB** for database management.
+- **REST API** for communication between client and server.
+- **Swagger** for API documentation.
+- **Docker** for containerization.
+- **Websocket** for real time updates.
+
+#### **Project Run Instructions**
+Your project must adhere to the following setup. **If these commands are not provided or functional, your project will not be evaluated.**
+
+- **Database Setup:**  
+  To start the database using Docker, execute the following command:
+  ```bash
+  make run_db
+  ```
+
+- **Run the Application:**  
+  To start the entire project using Docker, run:
+  ```bash
+  make run
+  ```
+
+  This will spin up your Golang application in a container, along with any other required services.
+
+
+The `Makefile` should handle all Docker-related tasks, ensuring the database and application are started properly using the `make run_db` and `make run` commands.
+
+
+### **Grading creteria**:
+
+| Category                         | Max Score |
+|----------------------------------|-----------|
+| Auto test                        | 100       |
+| Real-time Updates                | 40        |
+| Caching                          | 30        |
+| Rate Limiting                    | 30        |
+| **Total**                        | **200**   |
